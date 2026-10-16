@@ -65,3 +65,13 @@ Scope: one room, the Heart chamber, in the dungeon theme. Nothing else.
 - The Heart **never moves**. It stays on its spot and plays its sprite animation as a slow roll through the frames, not a walk.
 - **Implication for StarNet:** the Overseer's body is normally placed and moved like any other agent. In DungeonAI the Heart is rendered as a fixed sprite that is never pathed, while its state (status, delegation, alerts) still comes from the same live data.
 - **To confirm:** the speed of the roll. Starting point: one full 16-frame loop about every 4 seconds, ease-in and ease-out, so it breathes rather than flickers.
+
+## 8. Decision: the Heart sits at a workbench
+
+- The roll speed is approved: one 16-frame loop about every 4 seconds, eased.
+- The Heart sits **permanently at a workbench** in the Overseer room, so it can always perform tasks.
+- **StarNet behaviour to preserve:**
+  - A seat is bound to one agent. Summoning and deleting agents only adopts or unbinds seats that have no agent, so the Heart's bound workbench is safe from those actions.
+  - The hero agent already gets a workstation seeded at boot (`app.js`, `ensureWorkstation(agent.id)`), which is the mechanism that keeps the Overseer seated.
+  - The workbench grants the terminal capability (`CAP_REGISTRY`: workbench → terminal). The recast must keep that capability, whatever the art looks like.
+- **To confirm:** the Heart's workbench is a *workbench* in the Overseer room, not the Workshop anvil. That keeps it distinct from the anvils that belong to Workshop creatures.
