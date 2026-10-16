@@ -87,3 +87,10 @@ Everything in the installed StarNet, including: agent loop, providers (Anthropic
 2. **Private copy.** A GitHub fork of a public repo stays public. For a private copy, create a new **private** repository and push the StarNet code to it. Do you want me to prepare the commands, or will you create the empty private repo first?
 3. **Heart identity.** Is `chief` the Overseer (Grimaldus) in your install, or a separate agent?
 4. **Dungeon Heart status.** Should the first Heart be read-only (shows delegation and alerts) with no commands, or should it accept text commands from the start?
+
+## 10. Decisions so far (updated)
+
+- **Rooms are generic.** A StarNet room is a capability-scoped team. DungeonAI styles each room (Library, Workshop, Treasury and so on) on top of its contents. The style is a design choice, not a StarNet concept.
+- **StarNet components become themed furniture.** Desks and workbenches are recast per room style: bookshelves in a Library, anvils in a Workshop. Each furniture type has its own animation (for example, anvils get a hammering animation). Sprites stand beside the furniture to work.
+- **Art is reference-only for now.** The Dungeon Keeper screenshots guide layout and mood. New art is made as the project goes.
+- **Build approach.** Fork StarNet (a private copy is preferred) and build DungeonAI on a branch there, keeping the Classic view and a rollback path.
