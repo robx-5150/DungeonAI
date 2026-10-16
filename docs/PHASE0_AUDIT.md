@@ -94,3 +94,28 @@ Everything in the installed StarNet, including: agent loop, providers (Anthropic
 - **StarNet components become themed furniture.** Desks and workbenches are recast per room style: bookshelves in a Library, anvils in a Workshop. Each furniture type has its own animation (for example, anvils get a hammering animation). Sprites stand beside the furniture to work.
 - **Art is reference-only for now.** The Dungeon Keeper screenshots guide layout and mood. New art is made as the project goes.
 - **Build approach.** Fork StarNet (a private copy is preferred) and build DungeonAI on a branch there, keeping the Classic view and a rollback path.
+
+## 11. How agents attach to the station (summon, seats and bays)
+
+**Summon** (`frontend/app/app.js`, `summonAgent`):
+1. Creates an agent record with a unique id (never the hero's reserved `agent`), a name, role `specialist`, a model and provider (inherited or pinned), approval mode `ask`, and a composed system prompt.
+2. Spawns its floor body with `World.spawnAgent`.
+3. Creates its own workstream (conversation) bound to the agent, inactive by default.
+4. Optionally seeds a desk for it (`opts.desk`), via `ensureWorkstation`.
+5. Pushes the roster to the sidecar, so the Overseer can delegate to it.
+
+**Seats (where an agent sits)** (`frontend/app/worldmodel.js`):
+- A seat is a workstation prop bound to one agent through `agentId`.
+- Seat prop types: `desk`, `desk2`, `console`, `consoleL`, `pixelrig`, `bench`.
+- `ensureWorkstation` first reuses an unbound workstation in the spawn room, then places a new one (spawn room first, then other rooms).
+- An unbound workstation is dead furniture: no agent can walk to it.
+- Deleting an agent unbinds its workstation but does not demolish it.
+
+**Bays (conveyor endpoints)**:
+- A bay is a belt endpoint bound to an agent through `agentId`. It is not the seat. There are about 57 on the station.
+
+**Body placement** (`world.js`):
+- A body sits on the tile directly south of its workstation. If that tile is blocked, the agent cannot sit there.
+- This matters for the recast: the creature sprite should stand on the south side of the bookshelf or anvil.
+
+**Correction to section 10:** a bay is a conveyor endpoint. The creature's furniture is the seat (the workstation prop), and the bay is where work enters or leaves on the belt.
