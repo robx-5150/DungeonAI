@@ -58,3 +58,10 @@ Scope: one room, the Heart chamber, in the dungeon theme. Nothing else.
 2. **Reference sheet:** where did it come from, and do we have the rights to use it as a style guide? The answer decides whether any piece can be taken from it.
 3. **Heart chamber:** which room is the Heart chamber? I haven't yet confirmed where the Overseer's prop (`orchestrator` in the capability registry) is placed in the station layout. That needs checking before Milestone 1.
 4. **Scope of the theme:** should the dungeon theme be a separate page, or a switch within StarNet? The classic view must stay reachable either way.
+
+## 7. Decision: the Overseer room
+
+- The Overseer room has a **static Dungeon Heart spawn in the middle**. The Overseer is the Heart.
+- The Heart **never moves**. It stays on its spot and plays its sprite animation as a slow roll through the frames, not a walk.
+- **Implication for StarNet:** the Overseer's body is normally placed and moved like any other agent. In DungeonAI the Heart is rendered as a fixed sprite that is never pathed, while its state (status, delegation, alerts) still comes from the same live data.
+- **To confirm:** the speed of the roll. Starting point: one full 16-frame loop about every 4 seconds, ease-in and ease-out, so it breathes rather than flickers.
