@@ -22,13 +22,38 @@
     {
       "id": "floor_a",
       "file": "floor/floor_a.png",
-      "footprint": [
-        1,
-        1
-      ],
+      "footprint": [1, 1],
+      "imagePx": [256, 256],
       "layer": 1,
       "kind": "tile",
-      "variants": 4
+      "selection": "world-tile-hash"
+    },
+    {
+      "id": "floor_b",
+      "file": "floor/floor_b.png",
+      "footprint": [1, 1],
+      "imagePx": [256, 256],
+      "layer": 1,
+      "kind": "tile",
+      "selection": "world-tile-hash"
+    },
+    {
+      "id": "floor_c",
+      "file": "floor/floor_c.png",
+      "footprint": [1, 1],
+      "imagePx": [256, 256],
+      "layer": 1,
+      "kind": "tile",
+      "selection": "world-tile-hash"
+    },
+    {
+      "id": "floor_d",
+      "file": "floor/floor_d.png",
+      "footprint": [1, 1],
+      "imagePx": [256, 256],
+      "layer": 1,
+      "kind": "tile",
+      "selection": "world-tile-hash"
     },
     {
       "id": "ritual_floor_a",
