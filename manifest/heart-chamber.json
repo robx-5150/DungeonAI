@@ -2,28 +2,215 @@
   "_comment": "DungeonAI Heart chamber asset manifest. Source of truth for the asset loader. Paths are relative to frontend/assets/dungeon/.",
   "tilePx": 256,
   "worldTile": 12,
-  "anchor": { "tiles": "top-left", "props": "bottom-centre", "heart": "altar-top-centre" },
+  "anchor": {
+    "tiles": "top-left",
+    "props": "bottom-centre",
+    "heart": "altar-top-centre"
+  },
   "layers": {
-    "1": "floor", "2": "ritual-floor", "3": "walls", "4": "back-props",
-    "5": "altar", "6": "heart", "7": "foreground-props", "8": "lighting", "9": "effects"
+    "1": "floor",
+    "2": "ritual-floor",
+    "3": "walls",
+    "4": "back-props",
+    "5": "altar",
+    "6": "heart",
+    "7": "foreground-props",
+    "8": "lighting",
+    "9": "effects"
   },
   "assets": [
-    { "id": "floor_a", "file": "floor/floor_a.png", "footprint": [1, 1], "layer": 1, "kind": "tile", "variants": 4 },
-    { "id": "ritual_floor_a", "file": "floor/ritual_floor_a.png", "footprint": [1, 1], "layer": 2, "kind": "tile", "variants": 2 },
-    { "id": "wall_straight", "file": "wall/wall_straight.png", "footprint": [1, 1], "layer": 3, "kind": "tile" },
-    { "id": "wall_corner_inside", "file": "corner/wall_corner_inside.png", "footprint": [1, 1], "layer": 3, "kind": "tile" },
-    { "id": "wall_corner_outside", "file": "corner/wall_corner_outside.png", "footprint": [1, 1], "layer": 3, "kind": "tile" },
-    { "id": "wall_end_cap", "file": "wall/wall_end_cap.png", "footprint": [1, 1], "layer": 3, "kind": "tile" },
-    { "id": "door_arch", "file": "wall/door_arch.png", "footprint": [2, 1], "layer": 3, "kind": "prop" },
-    { "id": "edge", "file": "edge/edge.png", "footprint": [1, 1], "layer": 3, "kind": "tile" },
-    { "id": "corridor_floor", "file": "corridor/corridor_floor.png", "footprint": [1, 1], "layer": 1, "kind": "tile" },
-    { "id": "brazier", "file": "prop/brazier.png", "footprint": [1, 1], "layer": 4, "kind": "prop", "frames": 4, "frameFile": "prop/brazier_frame_{nn}.png" },
-    { "id": "banner", "file": "prop/banner.png", "footprint": [1, 2], "layer": 4, "kind": "prop", "frames": 4, "optional": true },
-    { "id": "pillar_back", "file": "prop/pillar_back.png", "footprint": [1, 2], "layer": 4, "kind": "prop" },
-    { "id": "pillar_front", "file": "prop/pillar_front.png", "footprint": [1, 2], "layer": 7, "kind": "prop" },
-    { "id": "altar", "file": "altar/altar.png", "footprint": [3, 2], "layer": 5, "kind": "prop" },
-    { "id": "heart", "file": "heart/heart_frame_{nn}.png", "footprint": [2, 2], "layer": 6, "kind": "animated", "frames": 16, "loopSeconds": 4, "anchor": "altar-top-centre" },
-    { "id": "heart_glow", "file": "light/heart_glow_{nn}.png", "footprint": [4, 4], "layer": 8, "kind": "animated", "frames": 8, "optional": true },
-    { "id": "lighting", "file": "light/lighting.png", "footprint": "room", "layer": 8, "kind": "overlay" }
-  ]
+    {
+      "id": "floor_a",
+      "file": "floor/floor_a.png",
+      "footprint": [
+        1,
+        1
+      ],
+      "layer": 1,
+      "kind": "tile",
+      "variants": 4
+    },
+    {
+      "id": "ritual_floor_a",
+      "file": "floor/ritual_floor_a.png",
+      "footprint": [
+        1,
+        1
+      ],
+      "layer": 2,
+      "kind": "tile",
+      "variants": 2
+    },
+    {
+      "id": "wall_straight",
+      "file": "wall/wall_straight.png",
+      "footprint": [
+        1,
+        1
+      ],
+      "layer": 3,
+      "kind": "tile"
+    },
+    {
+      "id": "wall_corner_inside",
+      "file": "corner/wall_corner_inside.png",
+      "footprint": [
+        1,
+        1
+      ],
+      "layer": 3,
+      "kind": "tile"
+    },
+    {
+      "id": "wall_corner_outside",
+      "file": "corner/wall_corner_outside.png",
+      "footprint": [
+        1,
+        1
+      ],
+      "layer": 3,
+      "kind": "tile"
+    },
+    {
+      "id": "wall_end_cap",
+      "file": "wall/wall_end_cap.png",
+      "footprint": [
+        1,
+        1
+      ],
+      "layer": 3,
+      "kind": "tile"
+    },
+    {
+      "id": "door_arch",
+      "file": "wall/door_arch.png",
+      "footprint": [
+        2,
+        1
+      ],
+      "layer": 3,
+      "kind": "prop"
+    },
+    {
+      "id": "edge",
+      "file": "edge/edge.png",
+      "footprint": [
+        1,
+        1
+      ],
+      "layer": 3,
+      "kind": "tile"
+    },
+    {
+      "id": "corridor_floor",
+      "file": "corridor/corridor_floor.png",
+      "footprint": [
+        1,
+        1
+      ],
+      "layer": 1,
+      "kind": "tile"
+    },
+    {
+      "id": "brazier",
+      "file": "prop/brazier.png",
+      "footprint": [
+        1,
+        1
+      ],
+      "layer": 4,
+      "kind": "prop",
+      "frames": 4,
+      "frameFile": "prop/brazier_frame_{nn}.png"
+    },
+    {
+      "id": "banner",
+      "file": "prop/banner.png",
+      "footprint": [
+        1,
+        2
+      ],
+      "layer": 4,
+      "kind": "prop",
+      "frames": 4,
+      "optional": true
+    },
+    {
+      "id": "pillar_back",
+      "file": "prop/pillar_back.png",
+      "footprint": [
+        1,
+        2
+      ],
+      "layer": 4,
+      "kind": "prop"
+    },
+    {
+      "id": "pillar_front",
+      "file": "prop/pillar_front.png",
+      "footprint": [
+        1,
+        2
+      ],
+      "layer": 7,
+      "kind": "prop"
+    },
+    {
+      "id": "altar",
+      "file": "altar/altar.png",
+      "footprint": [
+        5,
+        4
+      ],
+      "layer": 5,
+      "kind": "prop",
+      "imagePx": [
+        1280,
+        1024
+      ],
+      "note": "architectural base and steps included; provisional, verify against reference proportions"
+    },
+    {
+      "id": "heart",
+      "file": "heart/heart_frame_{nn}.png",
+      "footprint": [
+        2,
+        2
+      ],
+      "layer": 6,
+      "kind": "animated",
+      "frames": 16,
+      "loopSeconds": 4,
+      "anchor": "altar-top-centre",
+      "visualTiles": [
+        3,
+        3
+      ],
+      "imagePx": [
+        768,
+        768
+      ],
+      "note": "visual size 3x3 tiles, logical footprint 2x2 for hit detection and placement; provisional"
+    },
+    {
+      "id": "heart_glow",
+      "file": "light/heart_glow_{nn}.png",
+      "footprint": [
+        4,
+        4
+      ],
+      "layer": 8,
+      "kind": "animated",
+      "frames": 8,
+      "optional": true
+    },
+    {
+      "id": "lighting",
+      "file": "light/lighting.png",
+      "footprint": "room",
+      "layer": 8,
+      "kind": "overlay"
+    }
+  ],
+  "runtimeScaling": "optimised per use; master stays 256 px per tile"
 }

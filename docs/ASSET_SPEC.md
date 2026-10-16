@@ -79,3 +79,11 @@ The machine-readable version is in `frontend/assets/dungeon/manifest.json`.
 3. **Confirm the altar footprint** (3 × 2 tiles as a starting size).
 4. **Confirm the Heart footprint** (2 × 2 tiles).
 5. **Confirm whether the CRT effect is off** in DungeonAI. The plan is off by default for the dungeon theme, to keep the art sharp.
+
+## 8. Approved decisions (21:45)
+
+- **Master resolution:** 256 × 256 px per world tile. The renderer keeps the 12 px world tile and may use smaller runtime textures where that is faster. The master files are never downscaled in the repo.
+- **Altar:** 5 × 4 tiles, including the architectural base and steps. Image size 1280 × 1024 px. Provisional, to be checked against the reference proportions.
+- **Heart:** visual size 3 × 3 tiles (768 × 768 px). Logical footprint 2 × 2 tiles for placement and hit detection. The visual and logical sizes are kept separate. Provisional.
+- **Heart anchor:** the centre of the altar's top surface.
+- **Adjustment rule:** if the reference image needs different proportions, the reference wins and the manifest is updated.
