@@ -75,3 +75,10 @@ Scope: one room, the Heart chamber, in the dungeon theme. Nothing else.
   - The hero agent already gets a workstation seeded at boot (`app.js`, `ensureWorkstation(agent.id)`), which is the mechanism that keeps the Overseer seated.
   - The workbench grants the terminal capability (`CAP_REGISTRY`: workbench → terminal). The recast must keep that capability, whatever the art looks like.
 - **To confirm:** the Heart's workbench is a *workbench* in the Overseer room, not the Workshop anvil. That keeps it distinct from the anvils that belong to Workshop creatures.
+
+## 9. Decision: the Heart's bench becomes a shrine
+
+- The Heart's seat uses the **workbench** sprite (the first bench option) for now.
+- It will later be reskinned as a **small shrine**. This is an art change only.
+- Behaviour stays the same: a seat bound to the Overseer, plus a workbench capability (shell and verify, consent-gated) bound to the same seat.
+- Art note: the sprite filenames don't match what they show (`bench.png` is a console desk, `industrial_bench.png` is a sofa). Choose sprites by how they look, not by name.
