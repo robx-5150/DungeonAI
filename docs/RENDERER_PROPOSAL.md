@@ -82,3 +82,23 @@ Scope: one room, the Heart chamber, in the dungeon theme. Nothing else.
 - It will later be reskinned as a **small shrine**. This is an art change only.
 - Behaviour stays the same: a seat bound to the Overseer, plus a workbench capability (shell and verify, consent-gated) bound to the same seat.
 - Art note: the sprite filenames don't match what they show (`bench.png` is a console desk, `industrial_bench.png` is a sofa). Choose sprites by how they look, not by name.
+
+## 10. Canvas render order (inspected)
+
+`world.js`, `drawScene` (about line 6590), composes the frame in this order:
+
+1. **Backdrop** (`drawBackdrop`, line 6374).
+2. **Baked base layer** `cache.baseCv`: floors, walls, hull and room lighting, drawn in one blit (line 6611). The **dungeon floor, wall and corridor art goes here** via the image-authored material path.
+3. **Props and shadows**: `drawPropShadows` (6481) and `drawLitProp` (6450). **The altar, pillars, braziers and banners sit here.**
+4. **Seats and bodies**: `drawSeatChair` (6735) and `drawAgent` (7656). **The Heart's workbench seat is here.** The Heart's animated sprite is drawn as its own layer at this point, not baked.
+5. **Lighting overlay** `cache.lightCv`: baked darkness with light pools cut out, drawn over entities (per the `stationbake.js` header).
+6. **Effects and UI-adjacent canvas**: `drawGlows` (7350), `drawPropLights` (7377), `drawBloom` (7439), `drawDust` (7485), and the speech and name bubbles (`drawBubble` 7963).
+7. **Screen post-process**: `drawCRT` (7019) and `drawCurve` (7164). **These apply to everything above.** The Heart's glow must be tuned after this pass, or the CRT curvature will bend it.
+
+DOM elements (chat, approvals, notifications) sit outside the canvas and are unaffected.
+
+**Insertion points for DungeonAI:**
+- Floors, walls and corridors: inside step 2, through the material pack.
+- Altar, pillars and braziers: step 3, as multi-tile prop sprites.
+- The Heart: a new layer at step 4, drawn with the fixed position and the 4-second roll.
+- Heart glow: step 6, feeding into the existing glow and bloom.
